@@ -24,4 +24,4 @@ logs
 !.env.example
 
 # Sample country info for the project
-sampleCountryInfo.json
+sampleCountry.json
