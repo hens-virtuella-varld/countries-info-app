@@ -37,12 +37,12 @@ const selectedCountry = computed(() =>
   allCountries.filter((country) => country.cca3 === cca3.value)
 );
 
-const searchedResultCountries = computed(() => allCountries.filter(
+const searchedResultCountries = computed(() =>
+  allCountries.filter(
     (country) =>
       country.name.common.toLowerCase().includes(searchInput.value) === true
-  );
+  )
 );
-
 </script>
 
 <style scoped></style>
