@@ -2,31 +2,44 @@
   <div>
     <div>
       <label for="scales">Checked: Select; Unchecked: Search </label>
-      <input type="checkbox" id="toggler" name="toggler" @change="ToggleIsSelectMode" />
-    </div>
-    <CountrySearcher @search="setSearchInput" />
-    <CountrySelector :allCountries="allCountries" @select="setCca3" />
-    <div
-      v-if="Object.keys(searchedResultCountries).length > 0"
-      class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
-    >
-      <!-- <div v-for="country in allCountries"> -->
-      <CountryCard
-        v-for="country in searchedResultCountries"
-        :country="country"
+      <input
+        type="checkbox"
+        id="toggler"
+        name="toggler"
+        checked
+        @change="ToggleIsSelectMode"
       />
-      <!-- </div> -->
+    </div>
+    <CountrySelector v-if="isSelectMode" :allCountries="allCountries" @select="setCca3" />
+    <CountrySearcher v-else @search="setSearchInput" />
+    <div v-if="isSelectMode">
+      <div
+           v-if="selectedCountry[0]"
+        class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
+      >
+        <CountryCard :country="selectedCountry[0]" />
+      </div>
+    </div>
+    <div v-else>
+      <div
+        v-if="Object.keys(searchedResultCountries).length > 0"
+        class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
+      >
+        <CountryCard
+          v-for="country in searchedResultCountries"
+          :country="country"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue';
+import { ref, computed } from 'vue';
 import allCountries from '@/assets/data/allCountries.json';
 // const uri = 'https://restcountries.com/v3.1/all';
 // const { data: allCountries } = await useFetch(uri);
 
-const displayedCountries = ref([]);
 const searchInput = ref('');
 const cca3 = ref('');
 const isSelectMode = ref(true);
@@ -39,7 +52,7 @@ const setCca3 = (c) => {
 };
 
 const ToggleIsSelectMode = (event) => {
-  toggler.value = event.target.checked;
+  isSelectMode.value = event.target.checked;
 };
 
 const selectedCountry = computed(() =>
