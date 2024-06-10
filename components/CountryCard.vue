@@ -7,8 +7,8 @@
     <div>Population: {{ country.population }}</div>
     <div>Area: {{ country.area }}</div>
     <div>Google Map: {{ country.maps.googleMaps }}</div>
-    <div>subregion: {{ country.subregion }}</div>
     <div>region: {{ country.region }}</div>
+    <div>subregion: {{ country.subregion }}</div>
     <div>independent: {{ country.independent }}</div>
     <div>UN Member: {{ country.unMember }}</div>
     <div>languages: {{ country.languages }}</div>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <CountrySearcher @search="searchCountries" />
-    <CountrySelector :allCountries="allCountries" @select="selectCountry" />
+    <CountrySearcher @search="setSearchInput" />
+    <CountrySelector :allCountries="allCountries" @select="setCca3" />
     <div
       v-if="Object.keys(selectedCountries).length > 0"
       class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
@@ -19,11 +19,15 @@ import allCountries from '@/assets/data/allCountries.json';
 // const uri = 'https://restcountries.com/v3.1/all';
 // const { data: allCountries } = await useFetch(uri);
 
-const selectedCountries = ref([]);
+const searchInput = ref('');
+const cca3 = ref('');
 
-const selectCountry = (cca3) => {
-  selectedCountries.value = allCountries.filter(
-    (country) => country.cca3 === cca3
+const setSearchInput = (sI) => {
+  searchInput.value = sI;
+};
+const setCca3 = (c) => {
+  cca3.value = c;
+};
   );
 };
 

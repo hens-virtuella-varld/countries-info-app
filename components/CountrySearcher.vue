@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="search">Search for countries</label>
+    <label for="search">Search for countries: </label>
     <input
       type="text"
       id="search"
