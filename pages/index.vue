@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-5 grid justify-center">
     <SelectModeToggler @toggle="ToggleIsSelectMode" />
     <CountrySelector
       v-if="isSelectMode"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="country-select">Select a country: </label>
+    <label for="country-select" class="hidden">Select a country: </label>
     <select name="countries" id="country-select" @change="onChange">
       <option selected value disabled>Select a country</option>
       <option
