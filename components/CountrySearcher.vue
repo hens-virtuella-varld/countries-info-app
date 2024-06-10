@@ -19,4 +19,4 @@ const onChange = (event) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
