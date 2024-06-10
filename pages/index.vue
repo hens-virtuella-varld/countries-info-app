@@ -1,5 +1,6 @@
 <template>
   <div>
+    <CountrySearcher @search="searchCountries" />
     <CountrySelector :allCountries="allCountries" @select="selectCountry" />
     <div
       v-if="Object.keys(selectedCountries).length > 0"
@@ -23,6 +24,13 @@ const selectedCountries = ref([]);
 const selectCountry = (cca3) => {
   selectedCountries.value = allCountries.filter(
     (country) => country.cca3 === cca3
+  );
+};
+
+const searchCountries = (searchInput) => {
+  selectedCountries.value = allCountries.filter(
+    (country) =>
+      country.name.common.toLowerCase().includes(searchInput) === true
   );
 };
 </script>

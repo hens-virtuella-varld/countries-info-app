@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="country-select">Select a country:</label>
+    <label for="country-select">Select a country: </label>
     <select name="countries" id="country-select" @change="onChange">
       <option selected value disabled>Select a country</option>
       <option
@@ -22,7 +22,7 @@ const props = defineProps({
 const emit = defineEmits(['select']);
 
 const onChange = (event) => {
-  const cca3 = event.target.value
+  const cca3 = event.target.value;
   emit('select', cca3);
 };
 </script>
