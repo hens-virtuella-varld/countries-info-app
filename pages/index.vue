@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div>
+      <label for="scales">Checked: Select; Unchecked: Search </label>
+      <input type="checkbox" id="toggler" name="toggler" @change="ToggleIsSelectMode" />
+    </div>
     <CountrySearcher @search="setSearchInput" />
     <CountrySelector :allCountries="allCountries" @select="setCca3" />
     <div
@@ -25,12 +29,17 @@ import allCountries from '@/assets/data/allCountries.json';
 const displayedCountries = ref([]);
 const searchInput = ref('');
 const cca3 = ref('');
+const isSelectMode = ref(true);
 
 const setSearchInput = (sI) => {
   searchInput.value = sI;
 };
 const setCca3 = (c) => {
   cca3.value = c;
+};
+
+const ToggleIsSelectMode = (event) => {
+  toggler.value = event.target.checked;
 };
 
 const selectedCountry = computed(() =>

@@ -5,7 +5,7 @@
       type="text"
       id="search"
       placeholder="Search for countries"
-      @change="onChange"
+      @keyup="onChange"
     />
   </div>
 </template>
@@ -17,8 +17,6 @@ const onChange = (event) => {
   const searchInput = event.target.value;
   emit('search', searchInput);
 };
-
-
 </script>
 
 <style lang="scss" scoped></style>
