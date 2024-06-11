@@ -1,7 +1,9 @@
 <template>
   <div class="p-5 grid justify-center">
-    <RegionSelector
-      :selectedRegions="selectedRegions"
+    <Selector
+      :options="allRegions"
+      :name="'regions'"
+      :selectedOptions="selectedRegions"
       @select="setSelectedRegions"
     />
     <CountrySearcher @search="setSearchInput" />
@@ -34,7 +36,7 @@ const selectedRegions = ref(
 
 const setCca3 = (c) => (cca3.value = c);
 const setSearchInput = (sI) => (searchInput.value = sI);
-const setSelectedRegions = ({ region, isChecked }) => {
+const setSelectedRegions = ({ option: region, isChecked }) => {
   if (isChecked) {
     selectedRegions.value.add(region);
   } else {
@@ -48,7 +50,16 @@ const searchedResultCountries = computed(() =>
     (country) =>
       country.name.common.toLowerCase().includes(searchInput.value) === true
   )
-);
+    .filter((country) => selectedRegions.value.has(country.region))
+
+const allRegions = [
+  'Americas',
+  'Europe',
+  'Asia',
+  'Oceania',
+  'Africa',
+  'Antarctic',
+];
 </script>
 
 <style scoped></style>
