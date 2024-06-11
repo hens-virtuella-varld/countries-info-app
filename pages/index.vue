@@ -6,6 +6,12 @@
       :selectedOptions="selectedRegions"
       @select="setSelectedRegions"
     />
+    <Selector
+      :options="commonLanguages"
+      :name="'languages'"
+      :selectedOptions="selectedLanguages"
+      @select="setSelectedLanguages"
+    />
     <CountrySearcher @search="setSearchInput" />
 
     <div>
@@ -30,6 +36,7 @@ import allCountries from '@/assets/data/allCountries.json';
 
 const cca3 = ref('');
 const searchInput = ref('');
+const selectedLanguages = ref(new Set([]));
 const selectedRegions = ref(
   new Set(['Americas', 'Europe', 'Asia', 'Oceania', 'Africa', 'Antarctic'])
 );
@@ -44,13 +51,34 @@ const setSelectedRegions = ({ option: region, isChecked }) => {
   }
   console.log('selectedRegions: ', selectedRegions.value);
 };
+const setSelectedLanguages = ({ option: country, isChecked }) => {
+  if (isChecked) {
+    selectedLanguages.value.add(country);
+  } else {
+    selectedLanguages.value.delete(country);
+  }
+  console.log('selectedLanguages: ', selectedLanguages.value);
+};
 
 const searchedResultCountries = computed(() =>
-  allCountries.filter(
-    (country) =>
-      country.name.common.toLowerCase().includes(searchInput.value) === true
-  )
+  allCountries
+    .filter(
+      (country) =>
+        country.name.common.toLowerCase().includes(searchInput.value) === true
+    )
     .filter((country) => selectedRegions.value.has(country.region))
+    .filter((country) => {
+      if (selectedLanguages.value.size === 0) {
+        return true;
+      } else if (!country.languages) {
+        return false;
+      } else {
+        return Object.values(country.languages).some((language) =>
+          selectedLanguages.value.has(language)
+        );
+      }
+    })
+);
 
 const allRegions = [
   'Americas',
@@ -59,6 +87,19 @@ const allRegions = [
   'Oceania',
   'Africa',
   'Antarctic',
+];
+
+const commonLanguages = [
+  'English',
+  'French',
+  'Arabic',
+  'Spanish',
+  'Portuguese',
+  'Russian',
+  'Dutch',
+  'German',
+  'Chinese',
+  'Hindi',
 ];
 </script>
 
