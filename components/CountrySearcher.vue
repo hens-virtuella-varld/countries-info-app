@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex justify-center">
     <label for="search">Search for countries: </label>
     <input
       type="text"

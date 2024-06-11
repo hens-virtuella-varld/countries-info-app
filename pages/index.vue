@@ -7,10 +7,10 @@
         v-if="Object.keys(searchedResultCountries).length > 0"
         class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
       >
-       <CountryItem
-       v-for="country in allCountries"
-       :country="country"
-       />
+        <CountryItem
+          v-for="country in searchedResultCountries"
+          :country="country"
+        />
       </ul>
     </div>
   </div>
@@ -34,8 +34,6 @@ const searchedResultCountries = computed(() =>
       country.name.common.toLowerCase().includes(searchInput.value) === true
   )
 );
-
-const clickCountry = () => {};
 </script>
 
 <style scoped></style>
