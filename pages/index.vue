@@ -1,5 +1,9 @@
 <template>
   <div class="p-5 grid justify-center">
+    <RegionSelector
+      :selectedRegions="selectedRegions"
+      @select="setSelectedRegions"
+    />
     <CountrySearcher @search="setSearchInput" />
 
     <div>
@@ -24,9 +28,20 @@ import allCountries from '@/assets/data/allCountries.json';
 
 const cca3 = ref('');
 const searchInput = ref('');
+const selectedRegions = ref(
+  new Set(['Americas', 'Europe', 'Asia', 'Oceania', 'Africa', 'Antarctic'])
+);
 
 const setCca3 = (c) => (cca3.value = c);
 const setSearchInput = (sI) => (searchInput.value = sI);
+const setSelectedRegions = ({ region, isChecked }) => {
+  if (isChecked) {
+    selectedRegions.value.add(region);
+  } else {
+    selectedRegions.value.delete(region);
+  }
+  console.log('selectedRegions: ', selectedRegions.value);
+};
 
 const searchedResultCountries = computed(() =>
   allCountries.filter(
