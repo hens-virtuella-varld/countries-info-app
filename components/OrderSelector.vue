@@ -6,7 +6,7 @@
         class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-evenly"
       >
         <li v-for="sortOption in sortOptions" class="border-2 p-2 rounded-xl">
-          <label :for="sortOption.sortLabel" class="flex text-center">{{
+          <label :for="sortOption.sortOrder" class="flex text-center">{{
             sortOption.sortLabel
           }}</label>
           <input
