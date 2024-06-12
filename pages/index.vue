@@ -1,6 +1,5 @@
 <template>
-  <div class="p-5 grid justify-center gap-y-4">
-    <!-- <div>{{ sortedCountriesByPopulation }}</div> -->
+  <div class="w-full p-5 flex flex-col items-center gap-y-4">
     <OrderSelector
       :name="'Sort by'"
       :sortOrder="sortOrder"

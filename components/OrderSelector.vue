@@ -1,23 +1,24 @@
 <template>
-  <div class="grid grid-cols-8">
-    <div class="grid col-span-2">Choose {{ name }} :</div>
-    <div class="grid col-span-6">
-      <ul class="flex flex-row gap-4">
-        <div v-for="sortOption in sortOptions">
-          <li :for="sortOption.sortOrder">
-            <input
-              type="radio"
-              :id="sortOption.sortOrder"
-              :name="sortOption.sortOrder"
-              :value="sortOption.sortOrder"
-              :checked="sortOrder === sortOption.sortOrder"
-              @change="onChange"
-            />
-            <label :for="sortOption.sortLabel">{{
-              sortOption.sortLabel
-            }}</label>
-          </li>
-        </div>
+  <div class="flex items-center gap-10 sm:flex-col sm:gap-2">
+    <h3>{{ name }}</h3>
+    <div>
+      <ul
+        class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-evenly"
+      >
+        <li v-for="sortOption in sortOptions" class="border-2 p-2 rounded-xl">
+          <label :for="sortOption.sortLabel" class="flex text-center">{{
+            sortOption.sortLabel
+          }}</label>
+          <input
+            class="sr-only"
+            type="radio"
+            :id="sortOption.sortOrder"
+            :name="sortOption.sortOrder"
+            :value="sortOption.sortOrder"
+            :checked="sortOrder === sortOption.sortOrder"
+            @change="onChange"
+          />
+        </li>
       </ul>
     </div>
   </div>
@@ -37,19 +38,19 @@ const onChange = (event) => {
 const sortOptions = [
   {
     sortOrder: 'descendingPopulation',
-    sortLabel: 'population, higest first',
+    sortLabel: 'Population, higest first',
   },
   {
     sortOrder: 'ascendingPopulation',
-    sortLabel: 'population, lowest first',
+    sortLabel: 'Population, lowest first',
   },
   {
     sortOrder: 'descendingArea',
-    sortLabel: 'area, higest first',
+    sortLabel: 'Area, higest first',
   },
   {
     sortOrder: 'ascendingArea',
-    sortLabel: 'area, lowest first',
+    sortLabel: 'Area, lowest first',
   },
 ];
 </script>

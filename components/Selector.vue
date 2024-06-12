@@ -1,8 +1,8 @@
 <template>
-  <div class="flex items-center gap-2">
-    <h3 class="w-40">Select {{ name }}</h3>
+  <div class="flex flex-col gap-2">
+    <h3 class="flex justify-center">Select {{ name }}</h3>
     <div>
-      <ul class="flex flex-wrap gap-3">
+      <ul class="flex flex-wrap justify-start gap-3 sm:justify-evenly">
         <li v-for="option in options" class="border-2 p-2 rounded-xl">
           <label :for="option">{{ option }}</label>
           <input
