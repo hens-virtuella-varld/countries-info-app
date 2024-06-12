@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5 grid justify-center">
+  <div class="p-5 grid justify-center gap-y-4">
     <!-- <div>{{ sortedCountriesByPopulation }}</div> -->
     <OrderSelector
       :name="'Sort by'"
@@ -120,13 +120,9 @@ const allRegions = [
 const commonLanguages = [
   'English',
   'French',
-  'Arabic',
   'Spanish',
-  'Portuguese',
+  'Arabic',
   'Russian',
-  'Dutch',
-  'German',
-  'Chinese',
   'Hindi',
 ];
 </script>
