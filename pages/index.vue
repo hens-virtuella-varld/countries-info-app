@@ -1,17 +1,17 @@
 <template>
   <div class="p-5 grid justify-center">
     <!-- <div>{{ sortedCountriesByPopulation }}</div> -->
-    <div>
-      <li>
+    <div v-for="sortOption in sortOptions">
+      <li :for="sortOption.sortOrder">
         <input
-          type="checkbox"
-          :id="isDescending"
-          :name="isDescending"
-          :value="isDescending"
-          checked
-          @change="setIsDescending"
+          type="radio"
+          :id="sortOption.sortOrder"
+          :name="sortOption.sortOrder"
+          :value="sortOption.sortOrder"
+          :checked="sortOrder === sortOption.sortOrder"
+          @change="setSortOrder"
         />
-        <label>sort by population, higest first</label>
+        <label :for="sortOption.sortLabel">{{ sortOption.sortLabel }}</label>
       </li>
     </div>
     <Selector
@@ -53,8 +53,9 @@ const searchInput = ref('');
 const selectedLanguages = ref(new Set([]));
 const selectedRegions = ref(new Set([]));
 const isDescending = ref(true);
+const sortOrder = ref('descendingPopulation');
 
-const setIsDescending = (event) => (isDescending.value = event.target.checked);
+const setSortOrder = (event) => (sortOrder.value = event.target.value);
 const setCca3 = (c) => (cca3.value = c);
 const setSearchInput = (sI) => (searchInput.value = sI);
 const setSelectedRegions = ({ option: region, isChecked }) => {
@@ -96,13 +97,44 @@ const searchedResultCountries = computed(() => {
         );
       }
     });
-  const filteredCountriesCopy = [...filteredCountries];
-  return filteredCountriesCopy.sort((countryA, countryB) => {
-    return isDescending.value
-      ? countryB.population - countryA.population
-      : countryA.population - countryB.population;
-  });
+
+  if (sortOrder.value === 'descendingPopulation') {
+    return filteredCountries.sort(
+      (countryA, countryB) => countryB.population - countryA.population
+    );
+  } else if (sortOrder.value === 'ascendingPopulation') {
+    return filteredCountries.sort(
+      (countryA, countryB) => countryA.population - countryB.population
+    );
+  } else if (sortOrder.value === 'descendingArea') {
+    return filteredCountries.sort(
+      (countryA, countryB) => countryB.area - countryA.area
+    );
+  } else if (sortOrder.value === 'ascendingArea') {
+    return filteredCountries.sort(
+      (countryA, countryB) => countryA.area - countryB.area
+    );
+  }
 });
+
+const sortOptions = [
+  {
+    sortOrder: 'descendingPopulation',
+    sortLabel: 'sort by population, higest first',
+  },
+  {
+    sortOrder: 'ascendingPopulation',
+    sortLabel: 'sort by population, lowest first',
+  },
+  {
+    sortOrder: 'descendingArea',
+    sortLabel: 'sort by area, higest first',
+  },
+  {
+    sortOrder: 'ascendingArea',
+    sortLabel: 'sort by area, lowest first',
+  },
+];
 
 const allRegions = [
   'Americas',
