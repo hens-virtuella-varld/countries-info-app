@@ -3,7 +3,10 @@
     <h3 class="flex justify-center">Select {{ name }}</h3>
     <div>
       <ul class="flex flex-wrap justify-start gap-3 sm:justify-evenly">
-        <li v-for="option in options" class="border-2 p-2 rounded-xl">
+        <li
+          v-for="option in options"
+          class="border-2 p-2 rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-400"
+        >
           <label :for="option">{{ option }}</label>
           <input
             class="sr-only"
