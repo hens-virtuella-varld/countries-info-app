@@ -1,19 +1,11 @@
 <template>
   <div class="p-5 grid justify-center">
     <!-- <div>{{ sortedCountriesByPopulation }}</div> -->
-    <div v-for="sortOption in sortOptions">
-      <li :for="sortOption.sortOrder">
-        <input
-          type="radio"
-          :id="sortOption.sortOrder"
-          :name="sortOption.sortOrder"
-          :value="sortOption.sortOrder"
-          :checked="sortOrder === sortOption.sortOrder"
-          @change="setSortOrder"
-        />
-        <label :for="sortOption.sortLabel">{{ sortOption.sortLabel }}</label>
-      </li>
-    </div>
+    <OrderSelector
+      :name="'Sort by'"
+      :sortOrder="sortOrder"
+      @select="setSortOrder"
+    />
     <Selector
       :options="allRegions"
       :name="'regions'"
@@ -48,14 +40,13 @@ import allCountries from '@/assets/data/allCountries.json';
 // const uri = 'https://restcountries.com/v3.1/all';
 // const { data: allCountries } = await useFetch(uri);
 
+const sortOrder = ref('descendingPopulation');
 const cca3 = ref('');
 const searchInput = ref('');
-const selectedLanguages = ref(new Set([]));
 const selectedRegions = ref(new Set([]));
-const isDescending = ref(true);
-const sortOrder = ref('descendingPopulation');
+const selectedLanguages = ref(new Set([]));
 
-const setSortOrder = (event) => (sortOrder.value = event.target.value);
+const setSortOrder = (s) => (sortOrder.value = s);
 const setCca3 = (c) => (cca3.value = c);
 const setSearchInput = (sI) => (searchInput.value = sI);
 const setSelectedRegions = ({ option: region, isChecked }) => {
@@ -116,25 +107,6 @@ const searchedResultCountries = computed(() => {
     );
   }
 });
-
-const sortOptions = [
-  {
-    sortOrder: 'descendingPopulation',
-    sortLabel: 'sort by population, higest first',
-  },
-  {
-    sortOrder: 'ascendingPopulation',
-    sortLabel: 'sort by population, lowest first',
-  },
-  {
-    sortOrder: 'descendingArea',
-    sortLabel: 'sort by area, higest first',
-  },
-  {
-    sortOrder: 'ascendingArea',
-    sortLabel: 'sort by area, lowest first',
-  },
-];
 
 const allRegions = [
   'Americas',
