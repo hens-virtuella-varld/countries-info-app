@@ -37,9 +37,7 @@ import allCountries from '@/assets/data/allCountries.json';
 const cca3 = ref('');
 const searchInput = ref('');
 const selectedLanguages = ref(new Set([]));
-const selectedRegions = ref(
-  new Set(['Americas', 'Europe', 'Asia', 'Oceania', 'Africa', 'Antarctic'])
-);
+const selectedRegions = ref(new Set([]));
 
 const setCca3 = (c) => (cca3.value = c);
 const setSearchInput = (sI) => (searchInput.value = sI);
@@ -49,7 +47,6 @@ const setSelectedRegions = ({ option: region, isChecked }) => {
   } else {
     selectedRegions.value.delete(region);
   }
-  console.log('selectedRegions: ', selectedRegions.value);
 };
 const setSelectedLanguages = ({ option: country, isChecked }) => {
   if (isChecked) {
@@ -57,7 +54,6 @@ const setSelectedLanguages = ({ option: country, isChecked }) => {
   } else {
     selectedLanguages.value.delete(country);
   }
-  console.log('selectedLanguages: ', selectedLanguages.value);
 };
 
 const searchedResultCountries = computed(() =>
@@ -66,7 +62,13 @@ const searchedResultCountries = computed(() =>
       (country) =>
         country.name.common.toLowerCase().includes(searchInput.value) === true
     )
-    .filter((country) => selectedRegions.value.has(country.region))
+    .filter((country) => {
+      if (selectedRegions.value.size === 0) {
+        return true;
+      } else {
+        return selectedRegions.value.has(country.region);
+      }
+    })
     .filter((country) => {
       if (selectedLanguages.value.size === 0) {
         return true;
