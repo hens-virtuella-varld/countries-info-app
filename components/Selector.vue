@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-3 bg-white px-8 py-4">
     <h3 class="flex justify-center">Select {{ name }}</h3>
     <div>
       <ul class="flex flex-wrap justify-start gap-3 sm:justify-evenly">

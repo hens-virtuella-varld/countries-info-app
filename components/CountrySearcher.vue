@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white px-8 py-4 flex justify-center">
     <h3 class="sr-only">Search for countries</h3>
     <label for="search" class="sr-only">Search for countries</label>
     <input

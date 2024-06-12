@@ -1,15 +1,16 @@
 <template>
-  <div class="flex items-center gap-10 sm:flex-col sm:gap-2">
-    <h3>{{ name }}</h3>
+  <div class=" bg-white gap-2 px-8 py-4"
+  >
+    <h3 class="flex justify-center">{{ name }}</h3>
     <div>
       <ul
-        class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-evenly"
+        class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-start md:justify-evenly"
       >
         <li
           v-for="sortOption in sortOptions"
-          class="border-2 p-2 rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-400 "
+          class="border-2 p-2 rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-400"
         >
-          <label :for="sortOption.sortOrder" class="flex text-center">{{
+          <label :for="sortOption.sortOrder" class="flex flex-col text-center">{{
             sortOption.sortLabel
           }}</label>
           <input
@@ -58,6 +59,4 @@ const sortOptions = [
 ];
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

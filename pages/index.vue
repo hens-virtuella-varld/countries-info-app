@@ -1,34 +1,36 @@
 <template>
-  <div class="w-full p-5 flex flex-col items-center gap-y-4">
-    <OrderSelector
-      :name="'Sort by'"
-      :sortOrder="sortOrder"
-      @select="setSortOrder"
-    />
-    <Selector
-      :options="allRegions"
-      :name="'regions'"
-      :selectedOptions="selectedRegions"
-      @select="setSelectedRegions"
-    />
-    <Selector
-      :options="commonLanguages"
-      :name="'languages'"
-      :selectedOptions="selectedLanguages"
-      @select="setSelectedLanguages"
-    />
-    <CountrySearcher @search="setSearchInput" />
+  <div class="w-full flex flex-col items-center bg-slate-100">
+    <div class="flex flex-col max-w-7xl p-5 gap-y-4 ">
+      <OrderSelector
+        :name="'Sort by'"
+        :sortOrder="sortOrder"
+        @select="setSortOrder"
+      />
+      <Selector
+        :options="allRegions"
+        :name="'regions'"
+        :selectedOptions="selectedRegions"
+        @select="setSelectedRegions"
+      />
+      <Selector
+        :options="commonLanguages"
+        :name="'languages'"
+        :selectedOptions="selectedLanguages"
+        @select="setSelectedLanguages"
+      />
+      <CountrySearcher @search="setSearchInput" />
 
-    <div>
-      <ul
-        v-if="Object.keys(searchedResultCountries).length > 0"
-        class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
-      >
-        <CountryItem
-          v-for="country in searchedResultCountries"
-          :country="country"
-        />
-      </ul>
+      <div>
+        <ul
+          v-if="Object.keys(searchedResultCountries).length > 0"
+          class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
+        >
+          <CountryItem
+            v-for="country in searchedResultCountries"
+            :country="country"
+          />
+        </ul>
+      </div>
     </div>
   </div>
 </template>
