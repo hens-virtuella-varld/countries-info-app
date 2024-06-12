@@ -1,11 +1,13 @@
 <template>
-  <div class="flex justify-center">
-    <label for="search">Search for countries: </label>
+  <div>
+    <h3 class="sr-only">Search for countries</h3>
+    <label for="search" class="sr-only">Search for countries</label>
     <input
       type="text"
       id="search"
       placeholder="Search for countries"
       @keyup="onChange"
+      class="bg-red-50 shadow-lg rounded outline-none p-3"
     />
   </div>
 </template>
