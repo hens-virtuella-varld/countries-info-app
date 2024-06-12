@@ -1,5 +1,19 @@
 <template>
   <div class="p-5 grid justify-center">
+    <!-- <div>{{ sortedCountriesByPopulation }}</div> -->
+    <div>
+      <li>
+        <input
+          type="checkbox"
+          :id="isDescending"
+          :name="isDescending"
+          :value="isDescending"
+          checked
+          @change="setIsDescending"
+        />
+        <label>sort by population, higest first</label>
+      </li>
+    </div>
     <Selector
       :options="allRegions"
       :name="'regions'"
@@ -38,7 +52,9 @@ const cca3 = ref('');
 const searchInput = ref('');
 const selectedLanguages = ref(new Set([]));
 const selectedRegions = ref(new Set([]));
+const isDescending = ref(true);
 
+const setIsDescending = (event) => (isDescending.value = event.target.checked);
 const setCca3 = (c) => (cca3.value = c);
 const setSearchInput = (sI) => (searchInput.value = sI);
 const setSelectedRegions = ({ option: region, isChecked }) => {
@@ -56,8 +72,8 @@ const setSelectedLanguages = ({ option: country, isChecked }) => {
   }
 };
 
-const searchedResultCountries = computed(() =>
-  allCountries
+const searchedResultCountries = computed(() => {
+  const filteredCountries = allCountries
     .filter(
       (country) =>
         country.name.common.toLowerCase().includes(searchInput.value) === true
@@ -79,8 +95,14 @@ const searchedResultCountries = computed(() =>
           selectedLanguages.value.has(language)
         );
       }
-    })
-);
+    });
+  const filteredCountriesCopy = [...filteredCountries];
+  return filteredCountriesCopy.sort((countryA, countryB) => {
+    return isDescending.value
+      ? countryB.population - countryA.population
+      : countryA.population - countryB.population;
+  });
+});
 
 const allRegions = [
   'Americas',
