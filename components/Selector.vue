@@ -5,7 +5,7 @@
       <ul class="flex flex-wrap justify-start gap-3 sm:justify-evenly">
         <li
           v-for="option in options"
-          class="border-2 px-3 py-2 rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-400"
+          class="border-2 px-3 py-2 rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-500 has-[:active]:!text-red-50"
         >
           <label :for="option" class="text-lg font-medium">{{ option }}</label>
           <input

@@ -3,11 +3,11 @@
     <h3 class="flex justify-center text-xl font-bold uppercase">{{ name }}</h3>
     <div>
       <ul
-        class="flex flex-col gap-3 sm:flex-row sm:flex-wrap  md:justify-evenly"
+        class="flex flex-col gap-3 sm:flex-row sm:flex-wrap md:justify-evenly"
       >
         <li
           v-for="sortOption in sortOptions"
-          class="border-2 px-2 py-2  rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-400"
+          class="border-2 px-2 py-2 rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-500 has-[:active]:!text-red-50"
         >
           <label
             :for="sortOption.sortOrder"

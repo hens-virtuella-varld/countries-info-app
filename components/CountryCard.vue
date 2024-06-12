@@ -1,5 +1,5 @@
 <template>
-  <div class="card text-center bg-slate-50">
+  <div class="p-3 rounded-lg shadow-md h-full text-center bg-slate-50">
     <!-- <h1>{{ country }}</h1> -->
     <h3>common name: {{ country.name.common }}</h3>
     <div>official name: {{ country.name.official }}</div>
@@ -12,7 +12,9 @@
     <div>independent: {{ country.independent }}</div>
     <div>UN Member: {{ country.unMember }}</div>
     <div>languages: {{ country.languages }}</div>
-    <div>Flag: <img :src="`${country.flags.svg}`" width="200" class="shadow-xl"/></div>
+    <div>
+      Flag: <img :src="`${country.flags.svg}`" width="200" class="shadow-xl" />
+    </div>
   </div>
 </template>
 
