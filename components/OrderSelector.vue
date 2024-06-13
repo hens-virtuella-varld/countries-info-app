@@ -16,7 +16,7 @@
         />
         <label
           :for="sortOption.sortOrder"
-          class="flex flex-col text-center text-base font-medium border-2 px-2 py-1 rounded-xl peer-checked:bg-red-200 hover:!bg-red-300 active:!bg-red-500 active:!text-red-50"
+          class="flex flex-col text-center text-base font-medium border-2 px-2 py-1 rounded-xl peer-checked:bg-red-200 [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400"
           >{{ sortOption.sortLabel }}</label
         >
       </div>
