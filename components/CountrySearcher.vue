@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white px-8 py-4 flex flex-col items-center gap-3">
-    <h3 class="text-xl font-bold uppercase">Search for countries</h3>
+  <div class="bg-white px-4 py-2 flex flex-col items-center gap-2">
+    <h3 class="text-base font-bold uppercase">Search for countries</h3>
     <div>
       <label for="search" class="sr-only">Search for countries</label>
       <input
@@ -8,7 +8,7 @@
         id="search"
         placeholder="Search for countries"
         @keyup="onChange"
-        class="bg-red-50 shadow-lg rounded outline-none px-4 py-3 text-lg"
+        class="bg-red-50 shadow-lg rounded outline-none px-4 py-3 text-base"
       />
     </div>
   </div>

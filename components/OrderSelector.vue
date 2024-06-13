@@ -1,17 +1,17 @@
 <template>
-  <div class="bg-white flex flex-col gap-3 px-8 py-4">
-    <h3 class="flex justify-center text-xl font-bold uppercase">{{ name }}</h3>
+  <div class="bg-white flex flex-col gap-2 px-4 py-2">
+    <h3 class="flex justify-center text-base font-bold uppercase">{{ name }}</h3>
     <div>
       <ul
         class="flex flex-col gap-3 sm:flex-row sm:flex-wrap md:justify-evenly"
       >
         <li
           v-for="sortOption in sortOptions"
-          class="border-2 px-2 py-2 rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-500 has-[:active]:!text-red-50"
+          class="border-2 px-2 py-1 rounded-xl has-[:checked]:bg-red-200 has-[:hover]:!bg-red-300 has-[:active]:!bg-red-500 has-[:active]:!text-red-50"
         >
           <label
             :for="sortOption.sortOrder"
-            class="flex flex-col text-center text-lg font-medium"
+            class="flex flex-col text-center text-base font-medium"
             >{{ sortOption.sortLabel }}</label
           >
           <input

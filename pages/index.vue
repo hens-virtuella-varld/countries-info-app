@@ -1,6 +1,6 @@
 <template>
   <div class="font-sans text-stone-700 w-full  flex flex-col items-center bg-slate-100">
-    <div class="flex flex-col max-xl:w-full xl:w-[78rem] p-5 gap-y-4">
+    <div class="flex flex-col max-xl:w-full xl:w-[78rem] p-3 gap-y-2">
       <OrderSelector
         :name="'Sort by'"
         :sortOrder="sortOrder"

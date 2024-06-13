@@ -12,7 +12,7 @@
             width="50"
           />
         </div>
-        <div class="text-lg font-medium">{{ country.name.common }}</div>
+        <div class="text-base font-medium">{{ country.name.common }}</div>
       </div>
     </li>
   </NuxtLink>
