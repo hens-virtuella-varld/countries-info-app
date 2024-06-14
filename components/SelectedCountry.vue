@@ -30,7 +30,7 @@
           @click="onChange"
           class="border-4 border-red-100 p-3 rounded-2xl text-base font-medium [@media(pointer:fine){&:hover}]:bg-red-100 active:!bg-red-200"
         >
-          Show all result countries
+          Go back to result for all countries
         </button>
       </section>
     </section>
