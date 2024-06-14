@@ -2,25 +2,35 @@
   <main
     class="font-sans text-stone-700 w-full flex flex-col items-center bg-slate-100"
   >
-    <section class="flex flex-col max-xl:w-full xl:w-[78rem] p-3 gap-y-2">
-      <OrderSelector
-        :name="'Sort by'"
-        :sortOrder="sortOrder"
-        @select="setSortOrder"
-      />
-      <Selector
-        :options="allRegions"
-        :name="'regions'"
-        :selectedOptions="selectedRegions"
-        @select="setSelectedRegions"
-      />
-      <Selector
-        :options="commonLanguages"
-        :name="'languages'"
-        :selectedOptions="selectedLanguages"
-        @select="setSelectedLanguages"
-      />
-      <CountrySearcher @search="setSearchInput" />
+    <section
+      class="flex flex-col max-xl:w-full xl:w-[78rem] p-3 gap-y-2"
+    >
+      <section class="relative">
+        <section
+          v-if="selectedCountry"
+          class="absolute top-0 left-0 w-full h-full bg-zinc-400 opacity-50"
+        ></section>
+        <section>
+          <OrderSelector
+            :name="'Sort by'"
+            :sortOrder="sortOrder"
+            @select="setSortOrder"
+          />
+          <Selector
+            :options="allRegions"
+            :name="'regions'"
+            :selectedOptions="selectedRegions"
+            @select="setSelectedRegions"
+          />
+          <Selector
+            :options="commonLanguages"
+            :name="'languages'"
+            :selectedOptions="selectedLanguages"
+            @select="setSelectedLanguages"
+          />
+          <CountrySearcher @search="setSearchInput" />
+        </section>
+      </section>
 
       <section v-if="selectedCountry">
         <SelectedCountry
