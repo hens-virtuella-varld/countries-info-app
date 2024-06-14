@@ -1,34 +1,33 @@
 <template>
   <main
-    class="font-sans text-stone-700 w-full flex flex-col items-center bg-slate-100"
+    class="font-sans text-slate-700 w-full flex flex-col items-center bg-slate-100"
   >
     <section class="flex flex-col max-xl:w-full xl:w-[78rem] p-3 gap-y-2">
-      <section class="relative">
-        <!-- <section
-          v-if="selectedCountry"
-          class="absolute top-0 left-0 w-full h-full bg-zinc-400 opacity-50"
-        ></section> -->
-        <section>
-          <OrderSelector
-            :name="'Sort by'"
-            :sortOrder="sortOrder"
-            @select="setSortOrder"
-            :disabled="!!selectedCountry"
-          />
-          <Selector
-            :options="allRegions"
-            :name="'regions'"
-            :selectedOptions="selectedRegions"
-            @select="setSelectedRegions"
-          />
-          <Selector
-            :options="commonLanguages"
-            :name="'languages'"
-            :selectedOptions="selectedLanguages"
-            @select="setSelectedLanguages"
-          />
-          <CountrySearcher @search="setSearchInput" />
-        </section>
+      <section class="has-[:disabled]:text-slate-500">
+        <OrderSelector
+          :name="'Sort by'"
+          :sortOrder="sortOrder"
+          :disabled="!!selectedCountry"
+          @select="setSortOrder"
+        />
+        <Selector
+          :options="allRegions"
+          :name="'regions'"
+          :selectedOptions="selectedRegions"
+          :disabled="!!selectedCountry"
+          @select="setSelectedRegions"
+        />
+        <Selector
+          :options="commonLanguages"
+          :name="'languages'"
+          :selectedOptions="selectedLanguages"
+          :disabled="!!selectedCountry"
+          @select="setSelectedLanguages"
+        />
+        <CountrySearcher
+          :disabled="!!selectedCountry"
+          @search="setSearchInput"
+        />
       </section>
 
       <section v-if="selectedCountry">

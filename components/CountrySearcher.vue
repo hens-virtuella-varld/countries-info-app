@@ -7,14 +7,16 @@
         type="text"
         id="search"
         placeholder="Search for countries"
+        :disabled="disabled"
+        class="bg-red-50 shadow-lg rounded outline-none px-4 py-3 text-base disabled:!bg-slate-50"
         @keyup="onChange"
-        class="bg-red-50 shadow-lg rounded outline-none px-4 py-3 text-base"
       />
     </div>
   </div>
 </template>
 
 <script setup>
+const { disabled } = defineProps(['disabled']);
 const emit = defineEmits(['search']);
 
 const onChange = (event) => {

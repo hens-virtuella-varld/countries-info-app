@@ -12,12 +12,12 @@
           :name="sortOption.sortOrder"
           :value="sortOption.sortOrder"
           :checked="sortOrder === sortOption.sortOrder"
-          @change="onChange"
           :disabled="disabled"
+          @change="onChange"
         />
         <label
           :for="sortOption.sortOrder"
-          class="flex flex-col text-center text-base font-medium border-2 px-2 py-1 rounded-xl peer-checked:bg-red-200 [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400"
+          class="flex flex-col text-center text-base font-medium border-2 px-2 py-1 rounded-xl peer-checked:bg-red-200 [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400  peer-disabled:!bg-slate-50  peer-disabled:border-slate-200"
           >{{ sortOption.sortLabel }}</label
         >
       </div>
