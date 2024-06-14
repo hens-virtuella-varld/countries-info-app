@@ -55,9 +55,11 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import allCountries from '@/assets/data/allCountries.json';
-// const uri = 'https://restcountries.com/v3.1/all';
-// const { data: allCountries } = await useFetch(uri);
+// import data from '@/assets/data/allCountries.json';
+// const allCountries = ref(data);
+
+const uri = 'https://restcountries.com/v3.1/all';
+const { data: allCountries } = await useFetch(uri);
 
 const sortOrder = ref('descendingPopulation');
 const cca3 = ref('');
@@ -89,7 +91,7 @@ const setSelectedLanguages = ({ option: country, isChecked }) => {
 };
 
 const displayedList = computed(() => {
-  const filteredCountries = allCountries
+  const filteredCountries = allCountries.value
     .filter(
       (country) =>
         country.name.common.toLowerCase().includes(searchInput.value) === true
