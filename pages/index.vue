@@ -2,19 +2,18 @@
   <main
     class="font-sans text-stone-700 w-full flex flex-col items-center bg-slate-100"
   >
-    <section
-      class="flex flex-col max-xl:w-full xl:w-[78rem] p-3 gap-y-2"
-    >
+    <section class="flex flex-col max-xl:w-full xl:w-[78rem] p-3 gap-y-2">
       <section class="relative">
-        <section
+        <!-- <section
           v-if="selectedCountry"
           class="absolute top-0 left-0 w-full h-full bg-zinc-400 opacity-50"
-        ></section>
+        ></section> -->
         <section>
           <OrderSelector
             :name="'Sort by'"
             :sortOrder="sortOrder"
             @select="setSortOrder"
+            :disabled="!!selectedCountry"
           />
           <Selector
             :options="allRegions"

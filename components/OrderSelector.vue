@@ -13,6 +13,7 @@
           :value="sortOption.sortOrder"
           :checked="sortOrder === sortOption.sortOrder"
           @change="onChange"
+          :disabled="disabled"
         />
         <label
           :for="sortOption.sortOrder"
@@ -25,7 +26,11 @@
 </template>
 
 <script setup>
-const { sortOrder, name } = defineProps(['sortOrder', 'name']);
+const { sortOrder, name, disabled } = defineProps([
+  'sortOrder',
+  'name',
+  'disabled',
+]);
 
 const emit = defineEmits(['select']);
 
