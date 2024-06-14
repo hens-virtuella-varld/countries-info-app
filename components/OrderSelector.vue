@@ -4,7 +4,7 @@
       {{ name }}
     </h3>
     <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap md:justify-evenly">
-      <div v-for="sortOption in sortOptions">
+      <div v-for="sortOption in sortOptions" :key="sortOption">
         <input
           class="sr-only peer"
           type="radio"

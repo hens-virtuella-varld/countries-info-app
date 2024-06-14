@@ -4,7 +4,7 @@
       Select {{ name }}
     </h3>
     <div class="flex flex-wrap justify-start gap-3 sm:justify-evenly">
-      <div v-for="option in options">
+      <div v-for="option in options" :key="option">
         <input
           class="sr-only peer"
           type="checkbox"

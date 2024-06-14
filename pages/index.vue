@@ -34,6 +34,7 @@
           class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
         >
           <CountryItem
+            :key="country.cca3"
             v-for="country in displayedList"
             :country="country"
             @select="setSelectedCountry"
