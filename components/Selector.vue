@@ -17,7 +17,7 @@
         />
         <label
           :for="option"
-          class="border-2 px-3 py-1 rounded-xl text-base font-medium peer-checked:bg-red-200 [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400 peer-disabled:!bg-slate-50 peer-disabled:border-slate-200"
+          class="border-2 border-red-200 px-3 py-1 rounded-xl text-base font-medium peer-checked:bg-red-200 [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400 peer-disabled:!bg-slate-50 peer-disabled:border-slate-200"
           >{{ option }}</label
         >
       </div>

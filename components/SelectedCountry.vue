@@ -28,7 +28,7 @@
         </div>
         <button
           @click="onChange"
-          class="border-4 p-3 rounded-2xl text-base font-medium [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400"
+          class="border-4 border-red-100 p-3 rounded-2xl text-base font-medium [@media(pointer:fine){&:hover}]:bg-red-100 active:!bg-red-200"
         >
           Show all result countries
         </button>
