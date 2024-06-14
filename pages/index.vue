@@ -22,7 +22,13 @@
       />
       <CountrySearcher @search="setSearchInput" />
 
-      <section v-if="selectedCountry === null">
+      <section v-if="selectedCountry">
+        <SelectedCountry
+          :country="selectedCountry"
+          @select="setSelectedCountry"
+        />
+      </section>
+      <section v-else>
         <ul
           v-if="Object.keys(displayedList).length > 0"
           class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
@@ -33,12 +39,6 @@
             @select="setSelectedCountry"
           />
         </ul>
-      </section>
-      <section v-else>
-        <SelectedCountry
-          :country="selectedCountry"
-          @select="setSelectedCountry"
-        />
       </section>
     </section>
   </main>
