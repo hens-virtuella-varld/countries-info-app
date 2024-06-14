@@ -48,6 +48,12 @@
             @select="setSelectedCountry"
           />
         </ul>
+        <h2
+          v-else
+          class="text-3xl flex items-center justify-center text-center bg-white h-32"
+        >
+          There are no results matching your criteria.
+        </h2>
       </section>
     </section>
   </main>
