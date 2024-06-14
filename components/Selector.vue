@@ -34,7 +34,6 @@ const { selectedOptions, options, name } = defineProps([
 const emit = defineEmits(['select']);
 
 const onChange = (event) => {
-  console.log('yoooooo');
   const option = event.target.value;
   const isChecked = event.target.checked;
 

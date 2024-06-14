@@ -1,6 +1,8 @@
 <template>
-  <div class="font-sans text-stone-700 w-full  flex flex-col items-center bg-slate-100">
-    <div class="flex flex-col max-xl:w-full xl:w-[78rem] p-3 gap-y-2">
+  <main
+    class="font-sans text-stone-700 w-full flex flex-col items-center bg-slate-100"
+  >
+    <section class="flex flex-col max-xl:w-full xl:w-[78rem] p-3 gap-y-2">
       <OrderSelector
         :name="'Sort by'"
         :sortOrder="sortOrder"
@@ -20,19 +22,26 @@
       />
       <CountrySearcher @search="setSearchInput" />
 
-      <div>
+      <section v-if="selectedCountry === null">
         <ul
-          v-if="Object.keys(searchedResultCountries).length > 0"
+          v-if="Object.keys(displayedList).length > 0"
           class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
         >
           <CountryItem
-            v-for="country in searchedResultCountries"
+            v-for="country in displayedList"
             :country="country"
+            @select="setSelectedCountry"
           />
         </ul>
-      </div>
-    </div>
-  </div>
+      </section>
+      <section v-else>
+        <SelectedCountry
+          :country="selectedCountry"
+          @select="setSelectedCountry"
+        />
+      </section>
+    </section>
+  </main>
 </template>
 
 <script setup>
@@ -46,10 +55,15 @@ const cca3 = ref('');
 const searchInput = ref('');
 const selectedRegions = ref(new Set([]));
 const selectedLanguages = ref(new Set([]));
+const isDisplayedList = ref(true);
+const selectedCountry = ref(null);
 
-const setSortOrder = (s) => (sortOrder.value = s);
-const setCca3 = (c) => (cca3.value = c);
-const setSearchInput = (sI) => (searchInput.value = sI);
+const setSelectedCountry = (country) => {
+  selectedCountry.value = country;
+};
+const setSortOrder = (order) => (sortOrder.value = order);
+const setCca3 = (code) => (cca3.value = code);
+const setSearchInput = (input) => (searchInput.value = input);
 const setSelectedRegions = ({ option: region, isChecked }) => {
   if (isChecked) {
     selectedRegions.value.add(region);
@@ -65,7 +79,7 @@ const setSelectedLanguages = ({ option: country, isChecked }) => {
   }
 };
 
-const searchedResultCountries = computed(() => {
+const displayedList = computed(() => {
   const filteredCountries = allCountries
     .filter(
       (country) =>

@@ -1,11 +1,11 @@
 <template>
-  <NuxtLink :to="`/countries/${country.cca3}`" :country="country">
-    <li
-      class="flex justify-center items-center text-center p-3 rounded-lg shadow-md h-full bg-slate-50 hover:bg-red-100 active:bg-red-200"
-      @click="clickCountry"
+  <li class="grid">
+    <button
+      class="p-3 rounded-lg shadow-md bg-slate-50 hover:bg-red-100 active:bg-red-200"
+      @click="onChange(country)"
     >
       <div class="flex items-center justify-center gap-2">
-        <div class="shadow-xl">
+        <div>
           <img
             :src="`${country.flags.svg}`"
             :alt="country.name.cca3"
@@ -14,12 +14,19 @@
         </div>
         <div class="text-base font-medium">{{ country.name.common }}</div>
       </div>
-    </li>
-  </NuxtLink>
+    </button>
+  </li>
 </template>
 
 <script setup>
 const { country } = defineProps(['country']);
+
+const emit = defineEmits(['select']);
+
+const onChange = (country) => {
+  const selectedCountry = country;
+  emit('select', selectedCountry);
+};
 </script>
 
 <style></style>
