@@ -3,7 +3,7 @@
     <h3 class="flex justify-center text-base font-bold uppercase">
       Select {{ name }}
     </h3>
-    <div class="flex flex-wrap justify-start gap-3 sm:justify-evenly">
+    <div class="grid grid-cols-3 gap-3 place-items-center sm:grid-cols-6">
       <div v-for="option in options" :key="option">
         <input
           class="sr-only peer"
