@@ -1,20 +1,20 @@
 <template>
   <section
-    class="space-y-10 py-6 rounded-lg shadow-sm text-center bg-slate-50 sm:grid sm:grid-cols-2 sm:place-items-center"
+    class="space-y-6 py-6 rounded-lg shadow-sm text-center bg-slate-50 sm:grid sm:grid-cols-2 sm:place-items-center"
   >
     <section class="grid place-content-center">
       <img :src="`${country.flags.svg}`" class="shadow-xl w-60 sm:w-96" />
     </section>
 
-    <section class="space-y-4">
-      <section class="space-y-2">
+    <section>
+      <section class="space-y-2 sm:text-left">
         <h3 class="text-3xl font-bold">{{ country.name.common }}</h3>
         <div v-for="(infoItem, index) in infoList" :key="`info-item-${index}`">
           <h4 class="inline font-bold">{{ `${infoItem.title}: ` }}</h4>
           <span>{{ infoItem.content }}</span>
         </div>
       </section>
-      <section class="flex flex-col gap-2 items-center">
+      <section class="flex flex-col gap-2 py-4 items-center">
         <div>
           <a
             :href="country.maps.googleMaps"
@@ -28,7 +28,7 @@
         </div>
         <button
           @click="onChange"
-          class="border-4 border-red-100 p-3 rounded-2xl text-base font-medium [@media(pointer:fine){&:hover}]:bg-red-100 active:!bg-red-200"
+          class="bg-red-200 p-3 rounded-2xl text-base font-bold [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400 active:!text-slate-100"
         >
           Go back to result for all countries
         </button>

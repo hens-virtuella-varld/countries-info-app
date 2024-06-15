@@ -72,14 +72,12 @@ const cca3 = ref('');
 const searchInput = ref('');
 const selectedRegions = ref(new Set([]));
 const selectedLanguages = ref(new Set([]));
-const isDisplayedList = ref(true);
 const selectedCountry = ref(null);
 
 const setSelectedCountry = (country) => {
   selectedCountry.value = country;
 };
 const setSortOrder = (order) => (sortOrder.value = order);
-const setCca3 = (code) => (cca3.value = code);
 const setSearchInput = (input) => (searchInput.value = input);
 const setSelectedRegions = ({ option: region, isChecked }) => {
   if (isChecked) {
