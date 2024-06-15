@@ -12,7 +12,7 @@
             width="50"
           />
         </div>
-        <div class="text-base font-medium">{{ country.name.common }}</div>
+        <div class="font-medium">{{ country.name.common }}</div>
       </div>
     </button>
   </li>

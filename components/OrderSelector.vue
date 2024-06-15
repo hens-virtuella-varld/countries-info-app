@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white flex flex-col gap-2 px-4 py-2">
-    <h3 class="flex justify-center text-base font-bold uppercase">
+  <div class="selector-and-searcher-layout">
+    <h3 class="selector-title-flexbox selector-and-searcher-title-font">
       {{ name }}
     </h3>
     <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap md:justify-evenly">
@@ -17,7 +17,7 @@
         />
         <label
           :for="sortOption.sortOrder"
-          class="flex flex-col text-center text-base font-medium border-2 border-red-200 px-2 py-1 rounded-xl peer-checked:bg-red-200 [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400 peer-disabled:!bg-slate-50 peer-disabled:border-slate-200"
+          class="flex flex-col text-center px-2 selector-button [@media(pointer:fine){&:hover}]:bg-red-300"
           >{{ sortOption.sortLabel }}</label
         >
       </div>

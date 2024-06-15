@@ -3,5 +3,17 @@
 @tailwind utilities;
 
 @layer components {
-
+  .selector-and-searcher-layout {
+    @apply flex flex-col gap-2 bg-white px-4 py-2;
+  }
+  .selector-and-searcher-title-font {
+    @apply font-bold uppercase;
+  }
+  
+  .selector-title-flexbox {
+    @apply flex justify-center;
+  }
+  .selector-button {
+    @apply font-medium border-2 rounded-xl py-1 border-red-200 peer-checked:bg-red-200 active:!bg-red-400 peer-disabled:!bg-slate-50 peer-disabled:border-slate-200;
+  }
 }

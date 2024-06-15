@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col gap-2 bg-white px-4 py-2">
-    <h3 class="flex justify-center text-base font-bold uppercase">
+  <div class="selector-and-searcher-layout">
+    <h3 class="selector-title-flexbox selector-and-searcher-title-font">
       Select {{ name }}
     </h3>
     <div class="grid grid-cols-3 gap-3 place-items-center sm:grid-cols-6">
@@ -17,7 +17,7 @@
         />
         <label
           :for="option"
-          class="border-2 border-red-200 px-3 py-1 rounded-xl text-base font-medium peer-checked:bg-red-200 [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400 peer-disabled:!bg-slate-50 peer-disabled:border-slate-200"
+          class="px-3 selector-button [@media(pointer:fine){&:hover}]:bg-red-300"
           >{{ option }}</label
         >
       </div>

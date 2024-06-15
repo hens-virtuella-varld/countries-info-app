@@ -7,7 +7,7 @@
     </section>
 
     <section>
-      <section class="space-y-2 sm:text-left">
+      <section class="space-y-2 sm:text-left px-6">
         <h3 class="text-3xl font-bold">{{ country.name.common }}</h3>
         <div v-for="(infoItem, index) in infoList" :key="`info-item-${index}`">
           <h4 class="inline font-bold">{{ `${infoItem.title}: ` }}</h4>
@@ -28,7 +28,7 @@
         </div>
         <button
           @click="onChange"
-          class="bg-red-200 p-3 rounded-2xl text-base font-bold [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400 active:!text-slate-100"
+          class="bg-red-200 p-3 rounded-2xl font-bold [@media(pointer:fine){&:hover}]:bg-red-300 active:!bg-red-400 active:!text-slate-100"
         >
           Go back to result for all countries
         </button>

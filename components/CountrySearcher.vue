@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white px-4 py-2 flex flex-col items-center gap-2">
-    <h3 class="text-base font-bold uppercase">Search for countries</h3>
+  <div class="selector-and-searcher-layout items-center">
+    <h3 class="selector-and-searcher-title-font">Search for countries</h3>
     <div>
       <label for="search" class="sr-only">Search for countries</label>
       <input
@@ -8,7 +8,7 @@
         id="search"
         placeholder="Search for countries"
         :disabled="disabled"
-        class="bg-red-50 shadow-lg rounded outline-none px-4 py-3 text-base disabled:!bg-slate-50"
+        class="bg-red-50 shadow-lg rounded outline-none px-4 py-3 disabled:!bg-slate-50"
         @keyup="onChange"
       />
     </div>
