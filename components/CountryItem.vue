@@ -5,7 +5,7 @@
       @click="onChange(country)"
     >
       <div class="flex items-center justify-center gap-2">
-        <div>
+        <div class="shadow-md">
           <img
             :src="`${country.flags.svg}`"
             :alt="country.name.cca3"
