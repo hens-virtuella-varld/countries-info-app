@@ -68,7 +68,6 @@ const uri = 'https://restcountries.com/v3.1/all';
 const { data: allCountries } = await useFetch(uri);
 
 const sortOrder = ref('descendingPopulation');
-const cca3 = ref('');
 const searchInput = ref('');
 const selectedRegions = ref(new Set([]));
 const selectedLanguages = ref(new Set([]));
