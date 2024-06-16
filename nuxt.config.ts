@@ -2,4 +2,16 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss'],
+  app: {
+    head: {
+      title: "Countries' Info App",
+      meta: [
+        {
+          name: 'description',
+          content:
+            "A responsive app shows countries' info using Nuxt.js and Tailwind",
+        },
+      ],
+    },
+  },
 });
