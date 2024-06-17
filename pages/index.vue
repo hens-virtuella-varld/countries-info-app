@@ -61,8 +61,6 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-// import data from '@/assets/data/allCountries.json';
-// const allCountries = ref(data);
 
 const uri = 'https://restcountries.com/v3.1/all';
 const { data: allCountries } = await useFetch(uri);
