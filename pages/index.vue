@@ -95,7 +95,7 @@ const displayedList = computed(() => {
   const filteredCountries = allCountries.value
     .filter(
       (country) =>
-        country.name.common.toLowerCase().includes(searchInput.value) === true
+        country.name.common.toLowerCase().includes(searchInput.value.toLowerCase()) === true
     )
     .filter((country) => {
       if (selectedRegions.value.size === 0) {
